@@ -1,1 +1,1 @@
-{"scripts":{"build":"vite build"},"dependencies":{"@vitejs/plugin-react":"latest","vite":"latest","react":"latest","react-dom":"latest","three":"latest","tone":"latest"},"devDependencies":{"tailwindcss":"3.4.17","postcss":"latest","autoprefixer":"latest"}}
+{"type":"module","scripts":{"build":"vite build"},"dependencies":{"@vitejs/plugin-react":"latest","vite":"latest","react":"latest","react-dom":"latest","three":"latest","tone":"latest"},"devDependencies":{"tailwindcss":"3.4.17","postcss":"latest","autoprefixer":"latest"}}

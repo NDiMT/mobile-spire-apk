@@ -1,21 +1,16 @@
 name: Build and Commit APK
-
-on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'apk/**'
-  workflow_dispatch:
-
+on: [push]
 permissions:
   contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: bash scripts/build-web.sh
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -28,6 +23,6 @@ jobs:
       - run: mkdir -p apk && cp app/build/outputs/apk/debug/app-debug.apk apk/mobile-spire-debug.apk
       - run: git config user.name github-actions
       - run: git config user.email github-actions@github.com
-      - run: git add apk/mobile-spire-debug.apk
-      - run: git commit -m "Build debug APK" || echo "No APK changes"
-      - run: git push
+      - run: git add apk/mobile-spire-debug.apk app/src/main/assets
+      - run: git commit -m "Build React APK" || true
+      - run: git push || true
